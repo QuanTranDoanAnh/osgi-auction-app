@@ -28,12 +28,12 @@
     <version>1.0.0</version>
   </parent>
 
-    <artifactId>osgi-auction-spi</artifactId>
+    <artifactId>osgi-auction-auctioneer-sealed</artifactId>
     <version>1.0.0</version>
     <packaging>bundle</packaging>
 
-    <name>osgi-auction-spi Bundle</name>
-    <description>osgi-auction-spi OSGi bundle project.</description>
+    <name>osgi-auction-auctioneer-sealed Bundle</name>
+    <description>osgi-auction-auctioneer-sealed OSGi bundle project.</description>
 
     <properties>
         <maven-bundle-plugin.version>3.3.0</maven-bundle-plugin.version>
@@ -44,7 +44,12 @@
         <dependency>
             <groupId>${project.groupId}</groupId>
             <artifactId>osgi-auction-api</artifactId>
-            <version>[1.0.0,2.0.0)</version>
+            <version>[1.0.0, 2.0.0)</version>
+        </dependency>
+        <dependency>
+            <groupId>${project.groupId}</groupId>
+            <artifactId>osgi-auction-spi</artifactId>
+            <version>[1.0.0, 2.0.0)</version>
         </dependency>
     </dependencies>
 
@@ -59,9 +64,19 @@
                     <instructions>
                         <Bundle-SymbolicName>${project.artifactId}</Bundle-SymbolicName>
                         <Bundle-Version>${project.version}</Bundle-Version>
-                        <Export-Package>vn.quantda.example.osgi.auction.spi*;version=${project.version}</Export-Package>
+                        <Bundle-Activator>vn.quantda.example.osgi.auction.auctioneer.sealed.SealedFirstPriceAuctioneerActivator</Bundle-Activator>
+                        <Export-Package>vn.quantda.example.osgi.auction.auctioneer.sealed*;version=${project.version}</Export-Package>
                         <Import-Package>*</Import-Package>
                     </instructions>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>1.8</source>
+                    <target>1.8</target>
+                    <maxmem>256M</maxmem>
                 </configuration>
             </plugin>
 

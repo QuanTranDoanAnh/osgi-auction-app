@@ -44,5 +44,7 @@
     <module>osgi-auction-api</module>
     <module>osgi-auction-seller-simple</module>
     <module>osgi-auction-spi</module>
+    <module>osgi-auction-auctioneer-sealed</module>
+    <module>osgi-auction-auditor-sealed</module>
   </modules>
 </project>
