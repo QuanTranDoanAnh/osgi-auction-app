@@ -43,5 +43,6 @@
   <modules>
     <module>osgi-auction-api</module>
     <module>osgi-auction-seller-simple</module>
+    <module>osgi-auction-spi</module>
   </modules>
 </project>
